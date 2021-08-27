@@ -42,7 +42,7 @@ public class GetAllCountries extends HttpServlet {
         int startIndex = pageIndex * 10;
         int endIndex = startIndex + 10;
         List<CountryEntity> ces = new ArrayList<>();
-        if (request.getParameter("search") != null) {
+        if (request.getParameter("search") != null && !request.getParameter("search").equals("") ) {
             name = request.getParameter("search");
             ces.add(populationService.getPopulationByCountryName(name));
         } else {
